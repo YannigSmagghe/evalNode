@@ -51,7 +51,8 @@ router.use('/private', function respond403(req, res) {
     res.status(403);
     res.render('error/index',{
         title:'Error',
-        message:'Private section'
+        message:'Private section',
+        gifsrc:"https://media.giphy.com/media/leqmpruKOh3gY/giphy.gif"
     });
 });
 
