@@ -4,7 +4,7 @@ services:
   server:
     image: node:8.9.4
     working_dir: /app
-    command: node bin/www
+    command: node_modules/.bin/nodemon bin/www
     volumes:
       - .:/app
     ports:
