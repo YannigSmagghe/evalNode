@@ -11,7 +11,7 @@ block content
                 - var url = '/item/' + item.id
                 a(href=url)= item.name + ' ' + item.priceEur
 
-    ul
+    ul(class="list-unstyled list-currencies")
         for currency in Object.keys(currencies.rates)
             li
-                a(href='/items?cu=' + currency) #{currency}
+                a(href='/items?cu=' + currency) #{currency} &nbsp;&nbsp;&nbsp;

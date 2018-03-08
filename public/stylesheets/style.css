@@ -34,3 +34,11 @@ canvas{
 #start-button{
     position: relative;
 }
+
+.list-currencies {
+    margin-top: 25px;
+}
+
+.list-currencies li {
+    display: inline-block;
+}
