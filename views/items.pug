@@ -3,8 +3,10 @@ extends layout
 block content
     h1= title
     p Welcome to #{title}
-    ul
+    a(href='/new')
+        button(class='btn btn-primary') Add new item
+    ul(class="list-group")
         for item in data
-            li
+            li(class="list-group-item")
                 - var url = '/item/' + item.id
                 a(href=url)= item.name + ' ' + item.priceEur

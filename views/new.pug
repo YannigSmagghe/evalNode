@@ -4,11 +4,16 @@ block content
     h1= title
     a(href='/items') Retour à la liste
     form(action='/new', method='POST')
-        div(class='form-group')
-            | Name:
-            input(type='text', name='name', value='', class='form-control', required='true')
-            br
-            br
-            | Price in euro:
-            input(type='text', name='priceEur', value='', class='form-control', required='true')
-            input(type='submit', value='Submit', class='form-control')
+        div.container
+            div(class='form-group text-center')
+                div(class="form-group row")
+                    label(for="name" class="col-2 col-form-label") Name
+                    div(class="col-10")
+                        input(type='search' name='name' value='' class='form-control' required='true')
+                br
+                br
+                div(class="form-group row")
+                    label(for="priceEur" class="col-2 col-form-label") Price in euro
+                    div(class="col-10")
+                        input(type='search', name='priceEur', value='', class='form-control', required='true')
+                input(type='submit', value='Submit', class='form-control')
