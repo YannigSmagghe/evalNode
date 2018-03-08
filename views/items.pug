@@ -13,5 +13,5 @@ block content
 
     ul(class="list-unstyled list-currencies")
         for currency in Object.keys(currencies.rates)
-            li
-                a(href='/items?cu=' + currency) #{currency} &nbsp;&nbsp;&nbsp;
+            li &nbsp;&nbsp;&nbsp;
+                a(href='/items?cu=' + currency) #{currency}
