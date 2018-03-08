@@ -7,7 +7,7 @@ html, body {
 }
 
 canvas {
-    background:black;
+    background: rgba(221, 221, 221, 0.43);
 }
 a {
     color:black;
