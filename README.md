@@ -1,3 +1,8 @@
+#Install
+docker-compose up -d
+
+
+#Consignes
 # Doc
 
 _Placez votre doc ici, si besoin._
