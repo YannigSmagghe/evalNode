@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1= title
+    a(href='/items') Return to list
+    form(action='/new', method='POST')
+        div.container
+            div(class='form-group text-center')
+                div(class="form-group row")
+                    label(for="name" class="col-2 col-form-label") Name
+                    div(class="col-10")
+                        input(type='search' name='name' value='' class='form-control' required='true')
+                br
+                br
+                div(class="form-group row")
+                    label(for="priceEur" class="col-2 col-form-label") Price in euro
+                    div(class="col-10")
+                        input(type='number', step='0.01', name='priceEur', value='', class='form-control', required='true')
+                input(type='submit', value='Submit', class='form-control')

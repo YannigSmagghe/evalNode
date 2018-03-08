@@ -1,0 +1,44 @@
+html, body {
+    margin:0px auto;
+    background: white;
+    color: black;
+    font-size:16px;
+    text-align:center;
+}
+
+canvas {
+    background:black;
+}
+a {
+    color:black;
+    position: relative;
+}
+small {
+    opacity: .7;
+}
+.actions {
+    margin-top:32px;
+}
+canvas{
+    margin-top: 1%;
+    margin-bottom: -20%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.pug-image{
+    margin-bottom: 18%;
+}
+#start-button{
+    position: relative;
+}
+
+.list-currencies {
+    margin-top: 25px;
+}
+
+.list-currencies li {
+    display: inline-block;
+}

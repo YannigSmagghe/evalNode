@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+  body
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+        link(rel='stylesheet', href='/css/bootstrap.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/styleHeader.css')
+    body
+        include layout/header
+        block content
+        include layout/footer
+    script(src='/jq/jquery.js')
+    script(src='/js/bootstrap.js')

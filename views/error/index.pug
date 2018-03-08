@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    h1= message
+    if gifsrc
+        image(class ="gif-fail" src=gifsrc)
+    else
+        image(class ="gif-fail" src="https://media.giphy.com/media/SoO2i4lvuxEFW/giphy.gif")
+
+
+
