@@ -6,9 +6,10 @@ block content
     ul
         for item in data
             li
-                - var url = '/detail/' + item.name
+                - var url = '/item/' + item.id
                 a(href=url)= item.name + ' ' + item.priceEur
+
     ul
         for currency in Object.keys(currencies.rates)
             li
-                a(href='/list?cu='+currency) #{currency}
+                a(href='/items?cu=' + currency) #{currency}
