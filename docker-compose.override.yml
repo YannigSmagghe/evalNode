@@ -5,5 +5,3 @@ services:
     user: '1000:1000'
     volumes:
       - ~/.bashrc:/home/node/.bashrc:ro
-    ports:
-        - "3000:3000"
