@@ -4,9 +4,8 @@ services:
   server:
     image: node:8.9.4
     working_dir: /app
-    command: node index.js
+    command: node bin/www
     volumes:
       - .:/app
     ports:
-      - '8000:8000'
-'
+      - '3000:3000'
