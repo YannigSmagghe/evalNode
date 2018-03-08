@@ -9,7 +9,7 @@ module.exports = router;
 router.get('/', function(req, res, next) {
     res.status(200);
     res.contentType('html');
-    res.render('index', { title: 'Bienvenue' });
+    res.render('index', { title: 'Welcome' });
 });
 
 router.get('/items', function (req, res, next) {
@@ -53,7 +53,7 @@ router.get('/new', function (req, res, next) {
     res.status(200);
     res.contentType('html');
     res.render('new', {
-        title: 'Ajouter un élément'
+        title: 'Add element'
     });
 });
 
@@ -81,7 +81,7 @@ router.get('/item/:id', function (req, res, next) {
     db.getOne(id)
         .then(item => {
             res.render('item', {
-                title: 'Détail',
+                title: 'Detail',
                 item: item
         })
         .catch(err => {

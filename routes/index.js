@@ -51,7 +51,7 @@ router.use('/private', function respond403(req, res) {
     res.status(403);
     res.render('error/index',{
         title:'Error',
-        message:'Section privée'
+        message:'Private section'
     });
 });
 
@@ -59,7 +59,7 @@ router.use('*', function respond404(req, res) {
     res.status(404);
     res.render('error/index',{
         title:'Error',
-        message:'Page introuvable'
+        message:'Page not found'
     });
 });
 

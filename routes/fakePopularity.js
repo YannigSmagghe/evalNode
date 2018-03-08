@@ -6,10 +6,10 @@ router.use(function (req, res, next) {
 
     // Check minutes to lock access if it's between 49 and 59
     if(min >= 49 && min <= 59){
-        res.status(403);
+        res.status(429);
         res.render('error/index',{
             title:'Error',
-            message:'Site trop populaire actuellement. Veuillez réessayer plus tard.'
+            message:'Actually this site is overwhelmed by his popularity. Try to access it later.'
         });
     } else {
         next();
