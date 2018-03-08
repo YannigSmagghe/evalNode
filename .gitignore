@@ -1,6 +1,7 @@
 ### IDE ##
 
 .idea/
+docker-compose.override.yml
 
 ### Express ###
 
