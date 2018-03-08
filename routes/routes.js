@@ -1,10 +1,15 @@
 const express = require('express');
+const validate = require('form-validate');
 const router = express.Router();
 const db = require('../helpers/fake-db');
 const currency = require('../app/currency');
 const xss = require('locutus/php/strings');
 
+
+
 module.exports = router;
+
+
 
 router.get('/', function(req, res, next) {
     res.status(200);
@@ -76,6 +81,7 @@ router.post('/new', function (req, res, next) {
 
 router.get('/item/:id', function (req, res, next) {
     const id = req.params.id;
+
     res.status(200);
     res.contentType('html');
     db.getOne(id)
@@ -92,7 +98,8 @@ router.get('/item/:id', function (req, res, next) {
 
 
 function checkForm(unescapedData) {
-    if(unescapedData.name === undefined || unescapedData.priceEur === undefined) {
+    console.log(unescapedData)
+    if(unescapedData.name === '' || unescapedData.priceEur === '') {
         return false;
     }
 
