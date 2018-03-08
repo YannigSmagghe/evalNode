@@ -20,8 +20,8 @@ small {
     margin-top:32px;
 }
 canvas{
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 1%;
+    margin-bottom: -20%;
 }
 #footer {
     position: fixed;
@@ -29,5 +29,8 @@ canvas{
     width: 100%;
 }
 .pug-image{
-    margin-bottom: 160px;
+    margin-bottom: 18%;
+}
+#start-button{
+    position: relative;
 }
