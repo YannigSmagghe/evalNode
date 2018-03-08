@@ -2,7 +2,10 @@ extends ../layout
 
 block content
     h1= message
-    image(class ="gif-fail" src="https://media.giphy.com/media/SoO2i4lvuxEFW/giphy.gif")
+    if gifsrc
+        image(class ="gif-fail" src=gifsrc)
+    else
+        image(class ="gif-fail" src="https://media.giphy.com/media/SoO2i4lvuxEFW/giphy.gif")
 
 
 
