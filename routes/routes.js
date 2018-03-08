@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../helpers/fake-db');
 
 module.exports = router;
 
@@ -12,7 +13,12 @@ router.get('/', function(req, res, next) {
 router.get('/list', function (req, res, next) {
     res.status(200);
     res.contentType('html');
-    res.send('liste');
+    db.getAll().then(data => {
+        res.render('list', {
+            title: 'Liste',
+            data: data
+        });
+    })
 });
 
 router.get('/new', function (req, res, next) {

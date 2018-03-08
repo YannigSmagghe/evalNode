@@ -40,7 +40,7 @@ router.use(function (req, res, next) {
 
 router.use(logsMiddleware);
 
-app.use(routes);
+router.use(routes);
 
 router.use('*', function respond404(req, res) {
     res.status(404);
