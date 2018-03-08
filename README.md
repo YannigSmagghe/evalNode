@@ -1,5 +1,6 @@
 # Install
 docker-compose up -d
+http://localhost:3000/
 
 
 # Consignes
