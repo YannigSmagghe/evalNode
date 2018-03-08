@@ -34,9 +34,11 @@ router.use(function (req, res, next) {
 
     today = mm + '/' + dd + '/' + yyyy;
     const timestamp = mn + 'h' + hh + 'm' + s + 's';
-    console.log('Date:', today, 'Time:', timestamp);
+    console.log('> Date:', today, 'Time:', timestamp);
     next();
 });
+
+
 
 router.use(logsMiddleware);
 

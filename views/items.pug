@@ -6,5 +6,5 @@ block content
     ul
         for item in data
             li
-                - var url = '/detail/' + item.name
+                - var url = '/item/' + item.id
                 a(href=url)= item.name + ' ' + item.priceEur
