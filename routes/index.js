@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const db = require('../helpers/fake-db');
 const router = express.Router();
 const logsMiddleware = morgan('tiny');
 
@@ -45,9 +46,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/list', function (req, res, next) {
+    const data = await db.getAll();
     res.status(200);
     res.contentType('html');
-    res.send('liste');
+    res.render('list', {
+        title: 'Liste des items ',
+        list: data,
+    })
 });
 
 router.get('/new', function (req, res, next) {
@@ -57,16 +62,12 @@ router.get('/new', function (req, res, next) {
 });
 
 router.get('/detail/:id', function (req, res, next) {
+    const id = req.params.id;
     res.status(200);
     res.contentType('html');
-    res.send('detail');
+    res.render('detail', { title: 'Détail de l\'item' + id})
 });
 
-router.get('/currency', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('devises');
-});
 
 
 router.use('*', function respond404(req, res) {
