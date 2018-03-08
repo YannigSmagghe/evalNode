@@ -5,7 +5,7 @@ const router = express.Router();
 const logsMiddleware = morgan('tiny');
 const routes = require('./routes');
 
-/* GET home page. */
+/** GET home page. */
 
 router.use(function (req, res, next) {
     let today = new Date();
@@ -47,6 +47,17 @@ router.use(routes);
 router.use('*', function respond404(req, res) {
     res.status(404);
     res.send('Page introuvable');
+});
+
+/** Private Session */
+
+router.use('/private', function respond403(req, res) {
+    console.log('Request Type:', req.method);
+    res.status(403);
+    res.render('error/index',{
+        title:'Error',
+        message:'Section privé'
+    });
 });
 
 module.exports = router;

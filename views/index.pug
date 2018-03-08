@@ -1,11 +1,37 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='stylesheets/buttonOverPowered.css')
+    link(rel='stylesheet', href='stylesheets/normalize.css')
     image(class="pug-image" src="https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif")
-    canvas(id="draw" width="100" height="100")
+    canvas(id="draw")
         div.actions
-            a#print
+        a#print
     image(class="pug-image" src="https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif")
+    div(id="#start-button" class="download-button-container")
+        button(class="download-button")
+            span(class="button-text-real hidden") download
+        <!-- Extra elements to perform the animations -->
+        span(class="button-icon")
+            span(class="button-linear-progress")
+                span(class="button-linear-progress-bar")
+            svg(class="button-icon-svg" viewBox="0 0 60 60")
+                path(class="button-icon-path button-icon-path-square" d="M 20 40 l 0 -20 l 20 0 l 0 20 Z" style="stroke-dashoffset: 160; stroke-dasharray: 80, 104, 32;")
+                path(class="button-icon-path button-icon-path-line" d="M 40 20 l -20 20" style="stroke-dashoffset: 56.5685; stroke-dasharray: 28.2843, 28.2843, 28.2843;")
+        svg(class="border-svg" width="240px" height="100px" viewBox="0 0 240 100")
+            path(class="border-path hidden" d="M 40 3.5 a 36.5 36.5 0 0 0 -36.5 36.5 a 36.5 36.5 0 0 0 36.5 36.5 C 70 76.5 90 76.5 120 76.5 S 170 76.5 200 76.5 a 36.5 36.5 0 0 0 36.5 -36.5 a 36.5 36.5 0 0 0 -36.5 -36.5 Z")
+        span(class="button-text button-text-download") Pug Currency
+        span(class="button-text button-text-done") done!
+        div(class="button-wave")
+        div(class="button-progress-container")
+            svg(class="button-svg")
+                path(class="button-circular-progress" d="M 50 50 m 0 -32.5 a 32.5 32.5 0 0 1 0 65 a 32.5 32.5 0 0 1 0 -65" style="stroke-dashoffset: 408.375; stroke-dasharray: 204.187, 204.187, 0;")
+            span(class="button-ball")
+    script(src='scripts/jquery-3.3.1.js')
+    script(src='scripts/animation.js')
+    script(src='scripts/segment.min.js')
+    script(src='scripts/anime.min.js')
+    script(src='scripts/buttonOverPowered.js')
 
 
 
