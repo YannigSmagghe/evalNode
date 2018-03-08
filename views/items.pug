@@ -8,3 +8,8 @@ block content
             li
                 - var url = '/item/' + item.id
                 a(href=url)= item.name + ' ' + item.priceEur
+
+    ul
+        for currency in Object.keys(currencies.rates)
+            li
+                a(href='/items?cu=' + currency) #{currency}

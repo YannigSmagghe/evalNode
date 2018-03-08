@@ -1,9 +1,15 @@
 const express = require('express');
+const validate = require('form-validate');
 const router = express.Router();
 const db = require('../helpers/fake-db');
+const currency = require('../app/currency');
 const xss = require('locutus/php/strings');
 
+
+
 module.exports = router;
+
+
 
 router.get('/', function(req, res, next) {
     res.status(200);
@@ -12,18 +18,39 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/items', function (req, res, next) {
-    res.status(200);
     res.contentType('html');
-    db.getAll()
-        .then(data => {
-            res.render('items', {
-                title: 'Liste',
-                data: data
+
+    currency.getCurrencies((error, currencies) => {
+        db.getAll().then(data => {
+            (function nextIteration(i) {
+                if (i === data.length) {
+                    res.render('items', {
+                        title: 'List',
+                        data: data,
+                        currencies: currencies
+                    });
+
+                    return;
+                }
+
+                if (!req.query.cu) {
+                    nextIteration(data.length);
+                } else {
+                    currency.calcul(data[i].priceEur, req.query.cu, (error, resolvedValue) => {
+                        if (error) {
+                            return;
+                        }
+
+                        data[i].priceEur= resolvedValue;
+                        nextIteration(i + 1);
+                    });
+                }
+            })(0);
         })
         .catch(err => {
             console.log(err);
         });
-    })
+    });
 });
 
 
@@ -38,12 +65,7 @@ router.get('/new', function (req, res, next) {
 router.post('/new', function (req, res, next) {
     const data = checkForm(req.body);
     if(data === false) {
-        res.redirect(url.format({
-            pathname:"/new",
-            query: {
-                "msg": "Veuillez remplir tous les champs",
-            }
-        }));
+        res.redirect('/new');
     } else {
         db.add(data)
             .then(() => {
@@ -74,23 +96,18 @@ router.get('/item/:id', function (req, res, next) {
     })
 });
 
-router.get('/currency', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('devises');
-});
-
 
 function checkForm(unescapedData) {
-    if(unescapedData.name === undefined || unescapedData.priceEur === undefined) {
+    console.log(unescapedData)
+    if(unescapedData.name === '' || unescapedData.priceEur === '') {
         return false;
-    } else {
-        const name = xss.strip_tags(unescapedData.name, '');
-        const price = xss.strip_tags(unescapedData.priceEur, '');
-        const data = {
-            name: name,
-            priceEur: price
-        };
-        return data;
     }
+
+    const name = xss.strip_tags(unescapedData.name, '');
+    const price = xss.strip_tags(unescapedData.priceEur, '');
+    const data = {
+        name: name,
+        priceEur: price
+    };
+    return data;
 }
