@@ -36,7 +36,7 @@ router.get('/items', function (req, res, next) {
                             return;
                         }
 
-                        data[i].priceEur= resolvedValue;
+                        data[i].priceEur= resolvedValue.toFixed(2);
                         nextIteration(i + 1);
                     });
                 }
