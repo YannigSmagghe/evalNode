@@ -30,6 +30,7 @@ router.post('/', data.array(), function(req, res, next) {
             res.json(json);
         })
         .catch(error => {
+            res.status(404);
             res.json({
                 'success': false,
                 'message': error
