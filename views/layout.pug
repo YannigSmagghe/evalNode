@@ -1,7 +1,19 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='stylesheets/style.css')
+        link(rel='stylesheet', href='stylesheets/styleHeader.css')
+    body
+        include layout/header
+        block content
+        include layout/footer
+    script(src='scripts/animation.js')
+    script(src='scripts/jquery-3.3.1.js')
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js")
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/CSSPlugin.min.js")
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js")
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js")
+    //script(src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js")
+

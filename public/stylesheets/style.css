@@ -1,8 +1,33 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body {
+    margin:0px auto;
+    background: white;
+    color: black;
+    font-size:16px;
+    text-align:center;
 }
 
+canvas {
+    background:black;
+}
 a {
-  color: #00B7FF;
+    color:black;
+    position: relative;
+}
+small {
+    opacity: .7;
+}
+.actions {
+    margin-top:32px;
+}
+canvas{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.pug-image{
+    margin-bottom: 160px;
 }
