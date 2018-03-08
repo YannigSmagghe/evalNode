@@ -69,7 +69,7 @@ router.get('/currency', function (req, res, next) {
 });
 
 
-app.use('*', function respond404(req, res) {
+router.use('*', function respond404(req, res) {
     res.status(404);
     res.send('Page introuvable');
 });
