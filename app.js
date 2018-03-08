@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+const fakePopularity = require('./routes/fakePopularity');
 const index = require('./routes/index');
 const currency = require('./routes/currency');
 
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Fake Popularity
+app.use(fakePopularity);
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/jq', express.static(__dirname + '/node_modules/jquery/dist'));
@@ -29,6 +32,7 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 app.use('/', index);
 app.use('/currency', currency);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -44,11 +44,6 @@ router.use(logsMiddleware);
 
 router.use(routes);
 
-router.use('*', function respond404(req, res) {
-    res.status(404);
-    res.send('Page introuvable');
-});
-
 /** Private Session */
 
 router.use('/private', function respond403(req, res) {
@@ -56,7 +51,15 @@ router.use('/private', function respond403(req, res) {
     res.status(403);
     res.render('error/index',{
         title:'Error',
-        message:'Section privé'
+        message:'Section privée'
+    });
+});
+
+router.use('*', function respond404(req, res) {
+    res.status(404);
+    res.render('error/index',{
+        title:'Error',
+        message:'Page introuvable'
     });
 });
 
