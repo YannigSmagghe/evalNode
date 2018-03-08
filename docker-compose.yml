@@ -1,11 +1,10 @@
 version: '3.5'
 
 services:
-  server:
-    image: node:8.9.4
-    working_dir: /app
-    command: node bin/www
-    volumes:
-      - .:/app
-    ports:
-      - '3000:3000'
+    server:
+        build:
+          context: ./
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./:/home/node

@@ -18,8 +18,4 @@ router.get('/detail/:id', function (req, res, next) {
    res.send('detail');
 });
 
-router.get('/currency', function (req, res, next) {
-    res.send('devises');
-})
-
 module.exports = router;
