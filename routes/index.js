@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const router = express.Router();
 const logsMiddleware = morgan('tiny');
+const routes = require('./routes');
 
 /* GET home page. */
 
@@ -38,36 +39,7 @@ router.use(function (req, res, next) {
 
 router.use(logsMiddleware);
 
-router.get('/', function(req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.render('index', { title: 'Bienvenue' });
-});
-
-router.get('/list', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('liste');
-});
-
-router.get('/new', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('new');
-});
-
-router.get('/detail/:id', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('detail');
-});
-
-router.get('/currency', function (req, res, next) {
-    res.status(200);
-    res.contentType('html');
-    res.send('devises');
-});
-
+app.use(routes);
 
 router.use('*', function respond404(req, res) {
     res.status(404);
