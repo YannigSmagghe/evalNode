@@ -1,25 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const currency = require('../app/currency');
+const multer = require('multer');
+const data = multer();
 
-/* GET home page. */
-router.post('', function(req, res, next) {
-    console.log('XXXXXXXXXXXXXXXXXXXXXXX');
-    console.log(req);
+router.post('/', data.array(), function(req, res, next) {
+    console.log(req.body);
+    let promise = new Promise((resolve, reject) => {
+        try {
+            currency.calcul(req.body.value, req.body.currency, (error, value) => {
+                if (error) {
+                    reject(error);
 
-    currency.calcul(req.body.value, req.body.currency, (error, value) => {
-        let response = {};
+                    return;
+                }
 
-        if (error) {
-            response.success = false;
-            response.message = error;
-        } else {
-            response.success = true;
-            response.value = value;
+                resolve({
+                    'success': true,
+                    'data': value,
+                });
+            });
+        } catch(error) {
+            reject(error);
         }
-
-        res.json(response);
     });
+
+    promise
+        .then(json => {
+            res.json(json);
+        })
+        .catch(error => {
+            res.json({
+                'success': false,
+                'message': error
+            });
+        })
+    ;
 });
 
 module.exports = router;

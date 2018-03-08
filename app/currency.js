@@ -9,8 +9,6 @@ const getCurrencies = (callback) => {
             return;
         }
 
-        console.log(content);
-
         callback(null, JSON.parse(content));
     });
 };
@@ -29,7 +27,7 @@ const calcul = (value, currency, callback) => {
               return;
           }
 
-          return parseFloat(value) + parseFloat(content.rates[currency]);
+          callback(null, parseFloat(value) * parseFloat(content.rates[currency]));
       })
 };
 
