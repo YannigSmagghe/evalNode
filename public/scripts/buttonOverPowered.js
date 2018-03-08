@@ -131,6 +131,6 @@
 })();
 
 function redirectFunction() {
-    window.location.href='/list';
+    window.location.href='/items';
 }
 
