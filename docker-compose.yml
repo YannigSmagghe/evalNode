@@ -1,12 +1,11 @@
 version: '3.5'
 
 services:
-  server:
-    image: node:8.9.4
-    working_dir: /app
-    command: node index.js
-    volumes:
-      - .:/app
-    ports:
-      - '8000:8000'
-'
+ server:
+   image: node:8.9.4
+   working_dir: /app
+   command: node bin/www
+   volumes:
+     - .:/app
+   ports:
+     - '3000:3000'
