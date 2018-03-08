@@ -38,7 +38,12 @@ router.get('/new', function (req, res, next) {
 router.post('/new', function (req, res, next) {
     const data = checkForm(req.body);
     if(data === false) {
-        res.redirect('/new');
+        res.redirect(url.format({
+            pathname:"/new",
+            query: {
+                "msg": "Veuillez remplir tous les champs",
+            }
+        }));
     } else {
         db.add(data)
             .then(() => {
@@ -54,6 +59,7 @@ router.post('/new', function (req, res, next) {
 
 router.get('/item/:id', function (req, res, next) {
     const id = req.params.id;
+
     res.status(200);
     res.contentType('html');
     db.getOne(id)
